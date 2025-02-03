@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: pethub
+  profiles:
+    active: dev
+server:
+  port: ${PORT:8080}
+  servlet:
+    context-path: /api/v1
+jwt:
+  secret-key: ${JWT_SECRET_KEY}
+  issuer: 'pethub-apí'
+  expiration-time-minutes: 15
+  zoneId: 'America/Belem'
+user:
+  password:
+    regex: ^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$
