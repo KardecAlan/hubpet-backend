@@ -33,9 +33,9 @@ public class SecurityConfiguration {
         return httpSecurity.csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(req -> {
-                    req.requestMatchers("/auth/login").permitAll();
-                    req.requestMatchers("/auth/register").permitAll();
-                    req.requestMatchers("/auth/refresh").permitAll();
+                    req.requestMatchers("/autenticacao/login").permitAll();
+                    req.requestMatchers("/autenticacao/registrar").permitAll();
+                    req.requestMatchers("/autenticacao/atualizar").permitAll();
                     req.requestMatchers("/swagger-ui/**").permitAll();
                     req.requestMatchers("/v3/api-docs/**").permitAll();
                     req.anyRequest().authenticated();
