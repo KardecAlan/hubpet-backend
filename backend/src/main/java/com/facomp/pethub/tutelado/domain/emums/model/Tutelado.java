@@ -1,7 +1,7 @@
 package com.facomp.pethub.tutelado.domain.emums.model;
 
-import com.kardec.pethub.tutelado.domain.emums.*;
-import com.kardec.pethub.tutor.domain.model.Tutor;
+import com.facomp.pethub.tutelado.domain.emums.*;
+import com.facomp.pethub.tutor.domain.model.Tutor;
 import jakarta.persistence.*;
 import lombok.*;
 
