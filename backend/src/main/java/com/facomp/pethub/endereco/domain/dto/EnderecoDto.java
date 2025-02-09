@@ -1,22 +1,21 @@
-package com.facomp.pethub.endereco.domain.model;
+package com.facomp.pethub.endereco.domain.dto;
 
 
-import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
-@Builder
-@Entity
-@AllArgsConstructor
+@SuperBuilder(toBuilder = true)
 @NoArgsConstructor
-public class Endereco {
+@AllArgsConstructor
+public class EnderecoDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Version
     private Long versao;
 
     private String cep;

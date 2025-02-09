@@ -1,4 +1,4 @@
-package com.facomp.pethub.tutelado.domain.emums.model;
+package com.facomp.pethub.tutelado.domain.model;
 
 import com.facomp.pethub.tutelado.domain.emums.*;
 import com.facomp.pethub.tutor.domain.model.Tutor;
@@ -16,8 +16,7 @@ import java.util.Date;
 public class Tutelado {
 
     @Id
-    @SequenceGenerator(name = "tutelado_generator", sequenceName = "tutor_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tudelado_generator")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Version

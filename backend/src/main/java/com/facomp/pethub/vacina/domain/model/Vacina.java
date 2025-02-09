@@ -15,8 +15,7 @@ import java.util.Date;
 public class Vacina {
 
     @Id
-    @SequenceGenerator(name = "vacina_generator", sequenceName = "vacina_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "vacina_generator")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Version

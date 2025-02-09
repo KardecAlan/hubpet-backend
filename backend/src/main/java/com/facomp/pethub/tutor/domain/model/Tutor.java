@@ -2,10 +2,11 @@ package com.facomp.pethub.tutor.domain.model;
 
 
 import com.facomp.pethub.endereco.domain.model.Endereco;
-import com.facomp.pethub.tutelado.domain.emums.model.Tutelado;
+import com.facomp.pethub.tutelado.domain.model.Tutelado;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -18,8 +19,7 @@ import java.util.List;
 public class Tutor {
 
     @Id
-    @SequenceGenerator(name = "tutor_generator", sequenceName = "tutor_sequence", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tutor_generator")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Version
@@ -44,5 +44,7 @@ public class Tutor {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "tutor")
     private List<Tutelado> tutelados;
+
+    private LocalDateTime dataHoraExclusao;
 
 }
