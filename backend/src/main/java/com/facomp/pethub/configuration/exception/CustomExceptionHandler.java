@@ -19,9 +19,9 @@ import java.util.Optional;
 @ControllerAdvice
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(com.facomp.pethub.configuration.exception.RegisterNotFoundException.class)
+    @ExceptionHandler(RegisterNotFoundException.class)
     public ResponseEntity<Object> handleRegisterNotFoundException(
-            com.facomp.pethub.configuration.exception.RegisterNotFoundException exception, WebRequest request) {
+            RegisterNotFoundException exception, WebRequest request) {
 
         String uri = ((ServletWebRequest) request).getRequest().getRequestURI();
         ApiErrorMessage apiErrorMessage = new ApiErrorMessage(HttpStatus.NOT_FOUND, uri, exception.getMessage());

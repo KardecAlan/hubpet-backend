@@ -47,7 +47,7 @@ class CustomExceptionHandlerTest {
         when(httpServletRequest.getRequestURI()).thenReturn(uri);
 
         ResponseEntity<Object> response = customExceptionHandler.handleRegisterNotFoundException(
-                new RegisterNotFoundException(1), servletWebRequest
+                new RegisterNotFoundException("Teste"), servletWebRequest
         );
 
         assertNotNull(response);
