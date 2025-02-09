@@ -5,6 +5,7 @@ import com.facomp.pethub.usuario.domain.request.LoginRequest;
 import com.facomp.pethub.usuario.domain.request.RefreshTokenRequest;
 import com.facomp.pethub.usuario.domain.response.CreateUserResponse;
 import com.facomp.pethub.usuario.domain.response.LoginResponse;
+import com.facomp.pethub.usuario.domain.response.TokenResponse;
 import com.facomp.pethub.usuario.service.UsuarioService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -53,8 +54,8 @@ public class AutenticacaoController {
 
     @PostMapping("/atualizar")
     @Operation(description = "Atualizar token de autenticação")
-    public ResponseEntity<LoginResponse> refresh(@RequestBody @Valid RefreshTokenRequest refreshToken) {
-        LoginResponse token = usuarioService.refreshJwtToken(refreshToken.refreshToken());
+    public ResponseEntity<TokenResponse> refresh(@RequestBody @Valid RefreshTokenRequest refreshToken) {
+        TokenResponse token = usuarioService.refreshJwtToken(refreshToken.refreshToken());
 
         return ResponseEntity.ok(token);
     }

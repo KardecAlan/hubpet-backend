@@ -29,6 +29,8 @@ public class Usuario implements UserDetails {
 
     private String senha;
 
+    private String nome;
+
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinTable(name="usuario_cargo",
             joinColumns = @JoinColumn(name = "usuario_id"),
