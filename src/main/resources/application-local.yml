@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: easy-process
+  datasource:
+    url: jdbc:mysql://localhost:3306/pethub
+    username: ${DB_USER}
+    password: ${DB_PASS}
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+server:
+  error:
+    include-stacktrace: never
