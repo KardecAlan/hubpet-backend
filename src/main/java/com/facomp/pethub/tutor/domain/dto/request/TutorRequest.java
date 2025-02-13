@@ -13,6 +13,9 @@ import java.util.Date;
 @Setter
 public class TutorRequest {
 
+
+    private Long id;
+
     private Long versao;
 
     @NotNull(message = "O nome do tutor é obrigatório")
@@ -34,5 +37,7 @@ public class TutorRequest {
     private String email;
 
     private EnderecoDto endereco;
+
+    private String observacoes;
 
 }

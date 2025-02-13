@@ -29,6 +29,8 @@ public class TutorResponse {
 
     private EnderecoDto endereco;
 
+    private String observacoes;
+
     private LocalDateTime dataHoraExclusao;
 
 }
