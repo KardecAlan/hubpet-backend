@@ -1,7 +1,9 @@
 package com.facomp.pethub.tutor.domain.dto.request;
 
 import com.facomp.pethub.endereco.domain.dto.EnderecoDto;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,10 +20,10 @@ public class TutorRequest {
 
     private Long versao;
 
-    @NotNull(message = "O nome do tutor é obrigatório")
+    @NotBlank(message = "O nome do tutor é obrigatório")
     private String nome;
 
-    @NotNull(message = "O CPF do tutor é obrigatório")
+    @NotBlank(message = "O CPF do tutor é obrigatório")
     @CPF(message = "O CPF informado é inválido")
     private String cpf;
 
@@ -30,12 +32,14 @@ public class TutorRequest {
 
     private String telefone;
 
+    @NotBlank(message = "O celular do tutor é obrigatório")
     private String celular;
 
     @NotNull(message = "O e-mail do tutor é obrigatório")
     @Email(message = "O e-mail informado é inválido")
     private String email;
 
+    @Valid
     private EnderecoDto endereco;
 
     private String observacoes;
