@@ -5,6 +5,7 @@ import com.facomp.pethub.tutor.domain.model.Tutor;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Getter
@@ -42,9 +43,11 @@ public class Tutelado {
 
     private Castrado castrado;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne
     @JoinColumn(name = "tutor_id")
     private Tutor tutor;
 
     private String observacoes;
+
+    private LocalDateTime dataHoraExclusao;
 }
