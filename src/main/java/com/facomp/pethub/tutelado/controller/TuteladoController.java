@@ -26,8 +26,8 @@ public class TuteladoController {
     @Operation(summary = "Lista todos os tutelados.")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public Page<TuteladoResponse> findAll(TuteladoRequest tutorDto, Pageable paginacao) {
-        return tuteladoService.buscarTodos(tutorDto, paginacao);
+    public Page<TuteladoResponse> findAll(TuteladoRequest tuteladoRequest, Pageable paginacao) {
+        return tuteladoService.buscarTodos(tuteladoRequest, paginacao);
     }
 
     @Operation(summary = "Consulta um tutelado por ID.")
@@ -40,15 +40,15 @@ public class TuteladoController {
     @Operation(summary = "Cria um tutelado.")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public TuteladoResponse create(@RequestBody @Valid TuteladoRequest tutorDto) {
-        return tuteladoService.criar(tutorDto);
+    public TuteladoResponse create(@RequestBody @Valid TuteladoRequest tuteladoRequest) {
+        return tuteladoService.criar(tuteladoRequest);
     }
 
     @Operation(summary = "Atualiza um tutelado.")
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public TuteladoResponse update(@PathVariable Long id, @RequestBody TuteladoResponse tutorDto) {
-        return tuteladoService.atualizar(id, tutorDto);
+    public TuteladoResponse update(@PathVariable Long id, @RequestBody TuteladoResponse tuteladoRequest) {
+        return tuteladoService.atualizar(id, tuteladoRequest);
     }
 
     @Operation
