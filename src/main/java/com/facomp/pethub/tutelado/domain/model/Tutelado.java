@@ -1,5 +1,6 @@
 package com.facomp.pethub.tutelado.domain.model;
 
+import com.facomp.pethub.peso.domain.model.Peso;
 import com.facomp.pethub.tutelado.domain.emums.*;
 import com.facomp.pethub.tutor.domain.model.Tutor;
 import jakarta.persistence.*;
@@ -7,6 +8,7 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -46,6 +48,10 @@ public class Tutelado {
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "pelagem_id")
     private Pelagem pelagem;
+
+    @OneToMany(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "peso_id")
+    private List<Peso> peso;
 
     private Porte porte;
 

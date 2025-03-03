@@ -1,6 +1,5 @@
 package com.facomp.pethub.vacina.domain.model;
 
-import com.facomp.pethub.vacina.domain.enums.TipoVacina;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,9 +24,13 @@ public class Vacina {
 
     private boolean programada;
 
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "tipo_vacina_id")
     private TipoVacina tipoVacina;
 
-    private String nomeProduto;
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "produto_id")
+    private Produto protudo;
 
     private String doseAtual;
 
@@ -44,6 +47,5 @@ public class Vacina {
     private Date dataValidade;
 
     private boolean doseReforco;
-
 
 }
