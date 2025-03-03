@@ -29,14 +29,22 @@ public class Tutelado {
 
     private Sexo sexo;
 
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "especie_id")
     private Especie especie;
 
-    private String raca;
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "raca_id")
+    private Raca raca;
 
     private Date dataNascimento;
 
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "temperamento_id")
     private Temperamento temperamento;
 
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "pelagem_id")
     private Pelagem pelagem;
 
     private Porte porte;

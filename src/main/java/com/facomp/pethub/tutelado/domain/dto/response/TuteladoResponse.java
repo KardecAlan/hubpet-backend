@@ -1,6 +1,10 @@
 package com.facomp.pethub.tutelado.domain.dto.response;
 
 import com.facomp.pethub.tutelado.domain.emums.*;
+import com.facomp.pethub.tutelado.domain.model.Especie;
+import com.facomp.pethub.tutelado.domain.model.Pelagem;
+import com.facomp.pethub.tutelado.domain.model.Raca;
+import com.facomp.pethub.tutelado.domain.model.Temperamento;
 import com.facomp.pethub.tutor.domain.dto.response.TutorResponse;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,7 +27,7 @@ public class TuteladoResponse {
 
     private Especie especie;
 
-    private String raca;
+    private Raca raca;
 
     private Date dataNascimento;
 

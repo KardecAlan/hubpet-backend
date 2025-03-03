@@ -1,6 +1,10 @@
 package com.facomp.pethub.tutelado.domain.dto.request;
 
 import com.facomp.pethub.tutelado.domain.emums.*;
+import com.facomp.pethub.tutelado.domain.model.Especie;
+import com.facomp.pethub.tutelado.domain.model.Pelagem;
+import com.facomp.pethub.tutelado.domain.model.Raca;
+import com.facomp.pethub.tutelado.domain.model.Temperamento;
 import com.facomp.pethub.tutor.domain.dto.request.TutorRequest;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -30,7 +34,7 @@ public class TuteladoRequest {
     @Enumerated(EnumType.STRING)
     private Especie especie;
 
-    private String raca;
+    private Raca raca;
 
     @NotNull(message = "A data de nascimento do tutelado é obrigatória")
     private Date dataNascimento;
