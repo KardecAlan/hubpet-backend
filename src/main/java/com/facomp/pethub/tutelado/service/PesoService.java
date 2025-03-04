@@ -14,6 +14,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PesoService {
+
+    private static final String VALIDACAO_PESO_NAO_ECONTRADO = "Peso não encontrado!";
     
     private final PesoRepository pesoRepository;
     private final TuteladoService tuteladoService;
@@ -35,7 +37,7 @@ public class PesoService {
     public PesoResponse findById(Long idTutelado, Long idPeso) {
 
         var peso = pesoRepository.findByIdAndTutelado_Id(idPeso, idTutelado)
-                .orElseThrow(() -> new RegisterNotFoundException("Peso não encontrado!"));
+                .orElseThrow(() -> new RegisterNotFoundException(VALIDACAO_PESO_NAO_ECONTRADO));
 
         return pesoMapper.mapToDto(peso);
     }
@@ -52,7 +54,7 @@ public class PesoService {
     public PesoResponse update(Long idTutelado, Long idPeso, @Valid PesoRequest pesoRequest) {
         var tutelado = tuteladoService.buscarPorId(idTutelado);
         var peso = pesoRepository.findByIdAndTutelado_Id(idPeso, idTutelado)
-                .orElseThrow(() -> new RegisterNotFoundException("Peso não encontrado!"));
+                .orElseThrow(() -> new RegisterNotFoundException(VALIDACAO_PESO_NAO_ECONTRADO));
         pesoMapper.updateToEntity(pesoRequest, peso);
         peso.setTutelado(tuteladoMapper.mapToEntity(tutelado));
         peso = pesoRepository.save(peso);
@@ -61,7 +63,7 @@ public class PesoService {
 
     public void delete(Long idTutelado, Long idPeso) {
         var peso = pesoRepository.findByIdAndTutelado_Id(idPeso, idTutelado)
-                .orElseThrow(() -> new RegisterNotFoundException("Peso não encontrado!"));
+                .orElseThrow(() -> new RegisterNotFoundException(VALIDACAO_PESO_NAO_ECONTRADO));
         pesoRepository.delete(peso);
     }
 
