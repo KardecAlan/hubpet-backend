@@ -1,4 +1,4 @@
-package com.facomp.pethub.consulta.domain.enums;
+package com.facomp.pethub.tutelado.domain.emums;
 
 import lombok.Getter;
 

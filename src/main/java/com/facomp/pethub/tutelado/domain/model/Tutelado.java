@@ -1,7 +1,5 @@
 package com.facomp.pethub.tutelado.domain.model;
 
-import com.facomp.pethub.consulta.domain.model.Consulta;
-import com.facomp.pethub.peso.domain.model.Peso;
 import com.facomp.pethub.tutelado.domain.emums.*;
 import com.facomp.pethub.tutor.domain.model.Tutor;
 import jakarta.persistence.*;

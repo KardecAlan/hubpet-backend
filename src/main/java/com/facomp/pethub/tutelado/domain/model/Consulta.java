@@ -1,7 +1,6 @@
-package com.facomp.pethub.consulta.domain.model;
+package com.facomp.pethub.tutelado.domain.model;
 
-import com.facomp.pethub.consulta.domain.enums.TipoConsulta;
-import com.facomp.pethub.tutelado.domain.model.Tutelado;
+import com.facomp.pethub.tutelado.domain.emums.TipoConsulta;
 import jakarta.persistence.*;
 import lombok.*;
 

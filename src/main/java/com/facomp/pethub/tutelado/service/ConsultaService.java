@@ -1,13 +1,12 @@
-package com.facomp.pethub.consulta.service;
+package com.facomp.pethub.tutelado.service;
 
 import com.facomp.pethub.configuration.exception.BusinessException;
-import com.facomp.pethub.consulta.domain.dto.request.ConsultaRequest;
-import com.facomp.pethub.consulta.domain.dto.response.ConsultaResponse;
-import com.facomp.pethub.consulta.domain.model.Consulta;
-import com.facomp.pethub.consulta.mapper.ConsultaMapper;
-import com.facomp.pethub.consulta.repository.ConsultaRepository;
+import com.facomp.pethub.tutelado.domain.dto.request.ConsultaRequest;
+import com.facomp.pethub.tutelado.domain.dto.response.ConsultaResponse;
+import com.facomp.pethub.tutelado.domain.model.Consulta;
+import com.facomp.pethub.tutelado.mapper.ConsultaMapper;
+import com.facomp.pethub.tutelado.repository.ConsultaRepository;
 import com.facomp.pethub.tutelado.mapper.TuteladoMapper;
-import com.facomp.pethub.tutelado.service.TuteladoService;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -80,7 +79,7 @@ public class ConsultaService {
             throw new BusinessException("Já existe uma consulta marcada para este horário");
         }
 
-        consultaMapper.updateToEntitu(consultaRequest, consulta);
+        consultaMapper.updateToEntity(consultaRequest, consulta);
 
         consulta.setTutelado(tuteladoMapper.mapToEntity(tutelado));
 

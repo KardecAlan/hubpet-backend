@@ -1,6 +1,6 @@
-package com.facomp.pethub.consulta.domain.dto.response;
+package com.facomp.pethub.tutelado.domain.dto.response;
 
-import com.facomp.pethub.consulta.domain.enums.TipoConsulta;
+import com.facomp.pethub.tutelado.domain.emums.TipoConsulta;
 import lombok.Getter;
 import lombok.Setter;
 

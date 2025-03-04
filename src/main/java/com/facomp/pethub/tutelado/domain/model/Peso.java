@@ -1,7 +1,6 @@
-package com.facomp.pethub.peso.domain.model;
+package com.facomp.pethub.tutelado.domain.model;
 
 import com.facomp.pethub.tutelado.domain.emums.CondicaoCorporal;
-import com.facomp.pethub.tutelado.domain.model.Tutelado;
 import jakarta.persistence.*;
 import lombok.*;
 

@@ -1,6 +1,6 @@
 package com.facomp.pethub.tutelado.domain.dto.response;
 
-import com.facomp.pethub.peso.domain.model.Peso;
+import com.facomp.pethub.tutelado.domain.model.Peso;
 import com.facomp.pethub.tutelado.domain.emums.*;
 import com.facomp.pethub.tutelado.domain.model.Especie;
 import com.facomp.pethub.tutelado.domain.model.Pelagem;

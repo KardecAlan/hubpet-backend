@@ -1,6 +1,6 @@
 package com.facomp.pethub.tutor.domain.dto.request;
 
-import com.facomp.pethub.endereco.domain.dto.EnderecoDto;
+import com.facomp.pethub.tutor.domain.dto.EnderecoDto;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

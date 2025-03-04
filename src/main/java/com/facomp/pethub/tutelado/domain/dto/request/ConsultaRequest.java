@@ -1,7 +1,7 @@
-package com.facomp.pethub.consulta.domain.dto.request;
+package com.facomp.pethub.tutelado.domain.dto.request;
 
 import com.facomp.pethub.configuration.annotation.ValidEnum;
-import com.facomp.pethub.consulta.domain.enums.TipoConsulta;
+import com.facomp.pethub.tutelado.domain.emums.TipoConsulta;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;

@@ -1,6 +1,6 @@
-package com.facomp.pethub.consulta.repository;
+package com.facomp.pethub.tutelado.repository;
 
-import com.facomp.pethub.consulta.domain.model.Consulta;
+import com.facomp.pethub.tutelado.domain.model.Consulta;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

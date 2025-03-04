@@ -1,4 +1,4 @@
-package com.facomp.pethub.peso.domain.dto.response;
+package com.facomp.pethub.tutelado.domain.dto.response;
 
 import com.facomp.pethub.tutelado.domain.emums.CondicaoCorporal;
 import lombok.Getter;

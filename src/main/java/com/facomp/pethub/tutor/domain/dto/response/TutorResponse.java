@@ -1,6 +1,6 @@
 package com.facomp.pethub.tutor.domain.dto.response;
 
-import com.facomp.pethub.endereco.domain.dto.EnderecoDto;
+import com.facomp.pethub.tutor.domain.dto.EnderecoDto;
 import lombok.Getter;
 import lombok.Setter;
 

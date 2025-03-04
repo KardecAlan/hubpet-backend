@@ -1,8 +1,8 @@
-package com.facomp.pethub.consulta.controller;
+package com.facomp.pethub.tutelado.controller;
 
-import com.facomp.pethub.consulta.domain.dto.request.ConsultaRequest;
-import com.facomp.pethub.consulta.domain.dto.response.ConsultaResponse;
-import com.facomp.pethub.consulta.service.ConsultaService;
+import com.facomp.pethub.tutelado.domain.dto.request.ConsultaRequest;
+import com.facomp.pethub.tutelado.domain.dto.response.ConsultaResponse;
+import com.facomp.pethub.tutelado.service.ConsultaService;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;

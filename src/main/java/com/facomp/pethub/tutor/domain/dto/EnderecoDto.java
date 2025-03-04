@@ -1,4 +1,4 @@
-package com.facomp.pethub.endereco.domain.dto;
+package com.facomp.pethub.tutor.domain.dto;
 
 
 import jakarta.validation.constraints.NotBlank;

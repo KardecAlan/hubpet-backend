@@ -1,4 +1,4 @@
-package com.facomp.pethub.peso.domain.dto.request;
+package com.facomp.pethub.tutelado.domain.dto.request;
 
 import com.facomp.pethub.tutelado.domain.emums.CondicaoCorporal;
 import com.facomp.pethub.tutelado.domain.model.Tutelado;

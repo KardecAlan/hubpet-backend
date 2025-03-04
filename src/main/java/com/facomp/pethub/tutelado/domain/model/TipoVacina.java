@@ -1,4 +1,4 @@
-package com.facomp.pethub.vacina.domain.model;
+package com.facomp.pethub.tutelado.domain.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
