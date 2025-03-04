@@ -44,8 +44,8 @@ public class ConsultaService {
         }
 
         LocalDateTime inicio = consultaRequest.getDataConsulta();
-        LocalDateTime fim = inicio.plusHours(2);
-        List<Consulta> consultas = consultaRepository.findByDataConsultaBetween(inicio.minusHours(2), fim);
+        LocalDateTime fim = consultaRequest.getDataConsulta().plusHours(2);
+        List<Consulta> consultas = consultaRepository.findByDataConsultaBetween(inicio, fim);
 
         if (!consultas.isEmpty()) {
             throw new BusinessException("Já existe uma consulta marcada para este horário");
@@ -72,8 +72,8 @@ public class ConsultaService {
         }
 
         LocalDateTime inicio = consultaRequest.getDataConsulta();
-        LocalDateTime fim = inicio.plusHours(2);
-        List<Consulta> consultas = consultaRepository.findByDataConsultaBetweenAndIdNot(inicio.minusHours(2), fim, idConsulta);
+        LocalDateTime fim = consultaRequest.getDataConsulta().plusHours(2);
+        List<Consulta> consultas = consultaRepository.findByDataConsultaBetweenAndIdNot(inicio, fim, idConsulta);
 
         if (!consultas.isEmpty()) {
             throw new BusinessException("Já existe uma consulta marcada para este horário");
