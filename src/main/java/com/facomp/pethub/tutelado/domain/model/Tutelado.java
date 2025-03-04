@@ -1,5 +1,6 @@
 package com.facomp.pethub.tutelado.domain.model;
 
+import com.facomp.pethub.consulta.domain.model.Consulta;
 import com.facomp.pethub.peso.domain.model.Peso;
 import com.facomp.pethub.tutelado.domain.emums.*;
 import com.facomp.pethub.tutor.domain.model.Tutor;
@@ -50,8 +51,12 @@ public class Tutelado {
     private Pelagem pelagem;
 
     @OneToMany(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "peso_id")
+    @JoinColumn
     private List<Peso> peso;
+
+    @OneToMany(cascade = CascadeType.PERSIST)
+    @JoinColumn
+    private List<Consulta> consultas;
 
     private Porte porte;
 
