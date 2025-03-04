@@ -1,6 +1,7 @@
 package com.facomp.pethub.peso.domain.dto.request;
 
 import com.facomp.pethub.tutelado.domain.emums.CondicaoCorporal;
+import com.facomp.pethub.tutelado.domain.model.Tutelado;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,4 +18,6 @@ public class PesoRequest {
     private CondicaoCorporal condicaoCorporal;
 
     private String observacao;
+
+    private Tutelado tutelado;
 }

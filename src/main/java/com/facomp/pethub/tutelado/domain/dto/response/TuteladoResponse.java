@@ -1,5 +1,6 @@
 package com.facomp.pethub.tutelado.domain.dto.response;
 
+import com.facomp.pethub.peso.domain.model.Peso;
 import com.facomp.pethub.tutelado.domain.emums.*;
 import com.facomp.pethub.tutelado.domain.model.Especie;
 import com.facomp.pethub.tutelado.domain.model.Pelagem;
@@ -10,6 +11,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -34,6 +36,8 @@ public class TuteladoResponse {
     private Temperamento temperamento;
 
     private Pelagem pelagem;
+
+    private List<Peso> peso;
 
     private Porte porte;
 

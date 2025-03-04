@@ -1,6 +1,7 @@
 package com.facomp.pethub.peso.domain.model;
 
 import com.facomp.pethub.tutelado.domain.emums.CondicaoCorporal;
+import com.facomp.pethub.tutelado.domain.model.Tutelado;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -29,4 +30,8 @@ public class Peso {
     private CondicaoCorporal condicaoCorporal;
 
     private String observacao;
+
+    @ManyToOne
+    @JoinColumn(name = "tutelado_id", nullable = false)
+    private Tutelado tutelado;
 }
