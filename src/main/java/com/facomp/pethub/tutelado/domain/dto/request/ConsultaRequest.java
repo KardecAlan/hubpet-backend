@@ -25,6 +25,10 @@ public class ConsultaRequest {
     @NotNull(message = "A data da consulta é obrigatória")
     private LocalDateTime dataConsulta;
 
+    private Integer duracaoConsulta;
+
+    private boolean consultaCancelada;
+
     private String anamnese;
 
     private String exameFisico;

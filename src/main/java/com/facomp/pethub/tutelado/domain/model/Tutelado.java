@@ -31,21 +31,21 @@ public class Tutelado {
     private Sexo sexo;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "especie_id")
+    @JoinColumn(name = "especie_descricao", referencedColumnName = "descricao")
     private Especie especie;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "raca_id")
+    @JoinColumn(name = "raca_descricao", referencedColumnName = "descricao")
     private Raca raca;
 
     private Date dataNascimento;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "temperamento_id")
+    @JoinColumn(name = "temperamento_descricao", referencedColumnName = "descricao")
     private Temperamento temperamento;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "pelagem_id")
+    @JoinColumn(name = "pelagem_descricao", referencedColumnName = "descricao")
     private Pelagem pelagem;
 
     @OneToMany(cascade = CascadeType.PERSIST)

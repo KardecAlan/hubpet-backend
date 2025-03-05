@@ -41,5 +41,11 @@ public class ConsultaController {
         return consultaService.update(idTutelado, idConsulta, consultaRequest);
     }
 
+    @Operation(summary = "Deletar consulta")
+    @DeleteMapping("/{idConsulta}")
+    public void delete(@PathVariable("idConsulta") Long idConsulta) {
+        consultaService.delete(idConsulta);
+    }
+
 
 }

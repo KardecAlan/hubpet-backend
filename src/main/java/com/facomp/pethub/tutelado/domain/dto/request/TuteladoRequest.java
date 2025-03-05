@@ -1,6 +1,8 @@
 package com.facomp.pethub.tutelado.domain.dto.request;
 
-import com.facomp.pethub.tutelado.domain.emums.*;
+import com.facomp.pethub.tutelado.domain.emums.Castrado;
+import com.facomp.pethub.tutelado.domain.emums.Porte;
+import com.facomp.pethub.tutelado.domain.emums.Sexo;
 import com.facomp.pethub.tutelado.domain.model.Especie;
 import com.facomp.pethub.tutelado.domain.model.Pelagem;
 import com.facomp.pethub.tutelado.domain.model.Raca;
@@ -31,7 +33,6 @@ public class TuteladoRequest {
     private Sexo sexo;
 
     @NotNull(message = "A espécie do tutelado é obrigatória")
-    @Enumerated(EnumType.STRING)
     private Especie especie;
 
     private Raca raca;
@@ -39,20 +40,17 @@ public class TuteladoRequest {
     @NotNull(message = "A data de nascimento do tutelado é obrigatória")
     private Date dataNascimento;
 
-    @Enumerated(EnumType.STRING)
     private Temperamento temperamento;
 
-    @Enumerated(EnumType.STRING)
     private Pelagem pelagem;
 
-    @Enumerated(EnumType.STRING)
     private Porte porte;
 
-    @Enumerated(EnumType.STRING)
     private Castrado castrado;
 
     @NotNull(message = "O tutor do tutelado é obrigatório")
     private TutorRequest tutor;
 
     private String observacoes;
+
 }

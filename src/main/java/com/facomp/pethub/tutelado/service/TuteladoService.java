@@ -6,7 +6,6 @@ import com.facomp.pethub.tutelado.domain.dto.response.TuteladoResponse;
 import com.facomp.pethub.tutelado.domain.model.*;
 import com.facomp.pethub.tutelado.mapper.TuteladoMapper;
 import com.facomp.pethub.tutelado.repository.*;
-import com.facomp.pethub.tutor.repository.TutorRepository;
 import jakarta.persistence.criteria.Predicate;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -29,6 +28,10 @@ public class TuteladoService {
     private final TuteladoRepository tuteladoRepository;
     private final TuteladoMapper tuteladoMapper;
     private final TuteladoValidator tuteladoValidator;
+    private final EspecieRepository especieRepository;
+    private final PelagemRepository pelagemRepository;
+    private final RacaRepository racaRepository;
+    private final TemperamentoRepository temperamentoRepository;
 
 
     public Page<TuteladoResponse> buscarTodos(TuteladoRequest tuteladoDto, Pageable paginacao) {
@@ -82,5 +85,21 @@ public class TuteladoService {
                 .orElseThrow(() -> new RegisterNotFoundException(VALIDACAO_TUTELADO_NAO_ECONTRADO));
         tutelado.setDataHoraExclusao(LocalDateTime.now());
         tuteladoRepository.save(tutelado);
+    }
+
+    public List<Especie> buscarEspecies() {
+        return especieRepository.findAll();
+    }
+
+    public List<Pelagem> buscarPelagens() {
+        return pelagemRepository.findAll();
+    }
+
+    public List<Raca> buscarRacas() {
+        return racaRepository.findAll();
+    }
+
+    public List<Temperamento> buscarTemperamentos() {
+        return temperamentoRepository.findAll();
     }
 }

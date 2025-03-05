@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public interface ConsultaRepository extends JpaRepository<Consulta, Long>, JpaSpecificationExecutor<Consulta> {
 
-    Page<Consulta> findByTutelado_Id(Long id, Pageable paginacao);
+    Page<Consulta> findByTutelado_IdAndConsultaCanceladaIsFalse(Long id, Pageable paginacao);
 
     List<Consulta> findByDataConsultaBetween(LocalDateTime localDateTime, LocalDateTime fim);
 

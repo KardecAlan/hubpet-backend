@@ -27,6 +27,10 @@ public class Consulta {
 
     private LocalDateTime dataConsulta;
 
+    private Integer duracaoConsulta;
+
+    private boolean consultaCancelada;
+
     private String anamnese;
 
     private String exameFisico;

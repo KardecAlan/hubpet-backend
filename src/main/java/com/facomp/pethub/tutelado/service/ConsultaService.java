@@ -31,7 +31,7 @@ public class ConsultaService {
     }
 
     public Page<ConsultaResponse> findPesoPorTutelado(Long id, Pageable paginacao) {
-        Page<Consulta> consultas = consultaRepository.findByTutelado_Id(id, paginacao);
+        Page<Consulta> consultas = consultaRepository.findByTutelado_IdAndConsultaCanceladaIsFalse(id, paginacao);
         return consultas.map(consultaMapper::mapToDto);
     }
 
@@ -45,6 +45,11 @@ public class ConsultaService {
 
         LocalDateTime inicio = consultaRequest.getDataConsulta();
         LocalDateTime fim = consultaRequest.getDataConsulta().plusHours(2);
+
+        if (consultaRequest.getDuracaoConsulta() != null) {
+            fim = consultaRequest.getDataConsulta().plusHours(consultaRequest.getDuracaoConsulta());
+        }
+
         List<Consulta> consultas = consultaRepository.findByDataConsultaBetween(inicio, fim);
 
         if (!consultas.isEmpty()) {
@@ -86,6 +91,15 @@ public class ConsultaService {
         consulta = consultaRepository.save(consulta);
 
         return consultaMapper.mapToDto(consulta);
+    }
+
+    public void delete(Long idConsulta) {
+        var consulta = consultaRepository.findById(idConsulta)
+                .orElseThrow(() -> new BusinessException("Consulta não encontrada"));
+
+        consulta.setConsultaCancelada(true);
+
+        consultaRepository.save(consulta);
     }
 }
 
