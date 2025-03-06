@@ -38,17 +38,17 @@ public class TuteladoValidator {
 
     private Especie buscarOuCriarEspecie(Tutelado tutelado) {
         return especieRepository.findByDescricaoIgnoreCase(tutelado.getEspecie().getDescricao())
-                .orElseGet(() -> especieRepository.save(new Especie(tutelado.getEspecie().getDescricao())));
+                .orElseGet(() -> especieRepository.save(new Especie(tutelado.getEspecie().getDescricao().toUpperCase())));
     }
 
     private Pelagem buscarOuCriarPelagem(Tutelado tutelado) {
         return pelagemRepository.findByDescricaoIgnoreCase(tutelado.getPelagem().getDescricao())
-                .orElseGet(() -> pelagemRepository.save(new Pelagem(tutelado.getPelagem().getDescricao())));
+                .orElseGet(() -> pelagemRepository.save(new Pelagem(tutelado.getPelagem().getDescricao().toUpperCase())));
     }
 
     private Raca buscarOuCriarRaca(Tutelado tutelado) {
         return racaRepository.findByDescricaoIgnoreCase(tutelado.getRaca().getDescricao())
-                .orElseGet(() -> racaRepository.save(new Raca(tutelado.getRaca().getDescricao())));
+                .orElseGet(() -> racaRepository.save(new Raca(tutelado.getRaca().getDescricao().toUpperCase())));
     }
 
     private Temperamento buscarOuCriarTemperamento(Tutelado tutelado) {
