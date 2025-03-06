@@ -1,6 +1,7 @@
 package com.facomp.pethub.tutor.service;
 
 import com.facomp.pethub.configuration.exception.RegisterNotFoundException;
+import com.facomp.pethub.tutelado.domain.dto.Combo;
 import com.facomp.pethub.tutor.domain.dto.request.TutorRequest;
 import com.facomp.pethub.tutor.domain.dto.response.TutorResponse;
 import com.facomp.pethub.tutor.domain.model.Tutor;
@@ -80,5 +81,9 @@ public class TutorService {
                 .orElseThrow(() -> new RegisterNotFoundException(VALIDACAO_TUTOR_NAO_ECONTRADO));
         tutor.setDataHoraExclusao(LocalDateTime.now());
         tutorRepository.save(tutor);
+    }
+
+    public List<Combo> buscarTodosCombo() {
+        return tutorRepository.findAll().stream().map(tutor -> new Combo(tutor.getNome(), tutor.getId().toString())).toList();
     }
 }

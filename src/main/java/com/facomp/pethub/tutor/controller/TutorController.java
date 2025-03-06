@@ -1,5 +1,6 @@
 package com.facomp.pethub.tutor.controller;
 
+import com.facomp.pethub.tutelado.domain.dto.Combo;
 import com.facomp.pethub.tutor.domain.dto.request.TutorRequest;
 import com.facomp.pethub.tutor.domain.dto.response.TutorResponse;
 import com.facomp.pethub.tutor.service.TutorService;
@@ -10,6 +11,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Slf4j
 @RestController("tutorController")
@@ -27,6 +30,12 @@ public class TutorController {
     @ResponseStatus(HttpStatus.OK)
     public Page<TutorResponse> findAll(TutorRequest tutorDto, Pageable paginacao) {
         return tutorService.buscarTodos(tutorDto, paginacao);
+    }
+
+    @GetMapping("/combo")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Combo> findAllCombo() {
+        return tutorService.buscarTodosCombo();
     }
 
     @Operation(summary = "Consulta um tutor por ID.")
