@@ -1,6 +1,7 @@
 package com.facomp.pethub.tutelado.service;
 
 import com.facomp.pethub.configuration.exception.RegisterNotFoundException;
+import com.facomp.pethub.tutelado.domain.dto.Combo;
 import com.facomp.pethub.tutelado.domain.dto.request.TuteladoRequest;
 import com.facomp.pethub.tutelado.domain.dto.response.TuteladoResponse;
 import com.facomp.pethub.tutelado.domain.model.*;
@@ -87,19 +88,19 @@ public class TuteladoService {
         tuteladoRepository.save(tutelado);
     }
 
-    public List<Especie> buscarEspecies() {
-        return especieRepository.findAll();
+    public List<Combo> buscarEspecies() {
+        return especieRepository.findAll().stream().map(especie -> new Combo(especie.getDescricao(), especie.getDescricao().toUpperCase())).toList();
     }
 
-    public List<Pelagem> buscarPelagens() {
-        return pelagemRepository.findAll();
+    public List<Combo> buscarPelagens() {
+        return pelagemRepository.findAll().stream().map(pelagem -> new Combo(pelagem.getDescricao(), pelagem.getDescricao().toUpperCase())).toList();
     }
 
-    public List<Raca> buscarRacas() {
-        return racaRepository.findAll();
+    public List<Combo> buscarRacas() {
+        return racaRepository.findAll().stream().map(raca -> new Combo(raca.getDescricao(), raca.getDescricao().toUpperCase())).toList();
     }
 
-    public List<Temperamento> buscarTemperamentos() {
-        return temperamentoRepository.findAll();
+    public List<Combo> buscarTemperamentos() {
+        return temperamentoRepository.findAll().stream().map(temperamento -> new Combo(temperamento.getDescricao(), temperamento.getDescricao().toUpperCase())).toList();
     }
 }
