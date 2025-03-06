@@ -1,9 +1,8 @@
 package com.facomp.pethub.tutelado.domain.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
@@ -15,9 +14,17 @@ import lombok.*;
 public class TipoVacina {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    @Column(nullable = false, unique = true)
     private String descricao;
+
+    @JsonValue
+    public String getDescricao() {
+        return descricao;
+    }
+
+    @JsonCreator
+    public static TipoVacina fromDescricao(String descricao) {
+        return TipoVacina.builder().descricao(descricao).build();
+    }
 
 }
