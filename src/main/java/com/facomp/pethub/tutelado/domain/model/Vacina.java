@@ -48,4 +48,8 @@ public class Vacina {
 
     private boolean doseReforco;
 
+    @ManyToOne
+    @JoinColumn(name = "tutelado_id", nullable = false)
+    private Tutelado tutelado;
+
 }

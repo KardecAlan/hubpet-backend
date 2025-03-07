@@ -56,6 +56,10 @@ public class Tutelado {
     @JoinColumn
     private List<Consulta> consultas;
 
+    @OneToMany(cascade = CascadeType.PERSIST)
+    @JoinColumn
+    private List<Vacina> vacinas;
+
     private Porte porte;
 
     private Castrado castrado;
