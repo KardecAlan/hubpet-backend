@@ -41,4 +41,6 @@ public class ConsultaRequest {
 
     private String observacoes;
 
+    private Long tuteladoId;
+
 }

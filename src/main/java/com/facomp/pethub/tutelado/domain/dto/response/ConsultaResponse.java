@@ -35,4 +35,6 @@ public class ConsultaResponse {
     private String proximosPassos;
 
     private String observacoes;
+
+    private TuteladoResponse tutelado;
 }

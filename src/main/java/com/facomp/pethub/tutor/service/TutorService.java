@@ -84,6 +84,6 @@ public class TutorService {
     }
 
     public List<Combo> buscarTodosCombo() {
-        return tutorRepository.findAll().stream().map(tutor -> new Combo(tutor.getNome(), tutor.getId().toString())).toList();
+        return tutorRepository.findAllByDataHoraExclusaoIsNull().stream().map(tutor -> new Combo(tutor.getNome(), tutor.getId().toString())).toList();
     }
 }

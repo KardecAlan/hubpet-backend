@@ -8,6 +8,7 @@ import com.facomp.pethub.tutelado.domain.model.Pelagem;
 import com.facomp.pethub.tutelado.domain.model.Raca;
 import com.facomp.pethub.tutelado.domain.model.Temperamento;
 import com.facomp.pethub.tutor.domain.dto.response.TutorResponse;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,6 +32,7 @@ public class TuteladoResponse {
 
     private Raca raca;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date dataNascimento;
 
     private Temperamento temperamento;
