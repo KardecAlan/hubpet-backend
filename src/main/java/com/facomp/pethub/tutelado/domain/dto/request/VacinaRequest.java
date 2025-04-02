@@ -1,25 +1,15 @@
-package com.facomp.pethub.vacina.domain.model;
+package com.facomp.pethub.tutelado.domain.dto.request;
 
-import com.facomp.pethub.vacina.domain.enums.TipoVacina;
-import jakarta.persistence.*;
-import lombok.*;
+import com.facomp.pethub.tutelado.domain.model.Produto;
+import com.facomp.pethub.tutelado.domain.model.TipoVacina;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
 @Getter
 @Setter
-@Builder
-@Entity
-@AllArgsConstructor
-@NoArgsConstructor
-public class Vacina {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Version
-    private Long versao;
+public class VacinaRequest {
 
     private Date dataDaVacina;
 
@@ -27,7 +17,7 @@ public class Vacina {
 
     private TipoVacina tipoVacina;
 
-    private String nomeProduto;
+    private Produto protudo;
 
     private String doseAtual;
 
@@ -44,6 +34,4 @@ public class Vacina {
     private Date dataValidade;
 
     private boolean doseReforco;
-
-
 }

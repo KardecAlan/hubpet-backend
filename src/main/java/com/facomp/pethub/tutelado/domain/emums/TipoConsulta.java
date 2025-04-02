@@ -3,15 +3,14 @@ package com.facomp.pethub.tutelado.domain.emums;
 import lombok.Getter;
 
 @Getter
-public enum Castrado {
+public enum TipoConsulta {
 
-    SIM("Sim"),
-    NAO("Não"),
-    INDEFINIDO("Indefinido");
+    PADRAO("Padrão"),
+    DETALHADA("Detalhada");
 
     private final String nome;
 
-    Castrado(String nome) {
+    TipoConsulta(String nome) {
         this.nome = nome;
     }
 }

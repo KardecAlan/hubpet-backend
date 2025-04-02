@@ -1,6 +1,6 @@
 package com.facomp.pethub.tutor.domain.dto.response;
 
-import com.facomp.pethub.endereco.domain.dto.EnderecoDto;
+import com.facomp.pethub.tutor.domain.dto.EnderecoDto;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,6 +28,8 @@ public class TutorResponse {
     private String email;
 
     private EnderecoDto endereco;
+
+    private String observacoes;
 
     private LocalDateTime dataHoraExclusao;
 

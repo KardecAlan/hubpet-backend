@@ -1,7 +1,6 @@
 package com.facomp.pethub.tutor.domain.model;
 
 
-import com.facomp.pethub.endereco.domain.model.Endereco;
 import com.facomp.pethub.tutelado.domain.model.Tutelado;
 import jakarta.persistence.*;
 import lombok.*;

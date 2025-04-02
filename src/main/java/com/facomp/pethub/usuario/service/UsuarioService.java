@@ -8,6 +8,8 @@ import com.facomp.pethub.usuario.domain.request.CreateUserRequest;
 import com.facomp.pethub.usuario.domain.request.LoginRequest;
 import com.facomp.pethub.usuario.domain.response.CreateUserResponse;
 import com.facomp.pethub.usuario.domain.response.LoginResponse;
+import com.facomp.pethub.usuario.domain.response.TokenResponse;
+import com.facomp.pethub.usuario.mapper.CargoMapper;
 import com.facomp.pethub.usuario.repository.CargoRepository;
 import com.facomp.pethub.usuario.repository.UsuarioRepository;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,6 +19,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
+import java.util.List;
 
 @Service
 public class UsuarioService {
@@ -31,12 +34,15 @@ public class UsuarioService {
 
     private final PasswordEncoder passwordEncoder;
 
-    public UsuarioService(AuthenticationManager authenticationManager, TokenService jwtTokenService, UsuarioRepository userRepository, CargoRepository cargoRepository, PasswordEncoder passwordEncoder) {
+    private final CargoMapper cargoMapper;
+
+    public UsuarioService(AuthenticationManager authenticationManager, TokenService jwtTokenService, UsuarioRepository userRepository, CargoRepository cargoRepository, PasswordEncoder passwordEncoder, CargoMapper cargoMapper) {
         this.authenticationManager = authenticationManager;
         this.jwtTokenService = jwtTokenService;
         this.userRepository = userRepository;
         this.cargoRepository = cargoRepository;
         this.passwordEncoder = passwordEncoder;
+        this.cargoMapper = cargoMapper;
     }
 
     public LoginResponse authenticateUser(LoginRequest loginUserDto) {
@@ -49,14 +55,16 @@ public class UsuarioService {
 
         Usuario usuario = (Usuario) authentication.getPrincipal();
         String subject = usuario.getEmail();
+        List<Cargo> cargos = usuario.getCargos();
 
-        return new LoginResponse(jwtTokenService.generateAccessToken(subject), jwtTokenService.generateRefreshToken(subject));
+
+        return new LoginResponse(usuario.getNome(), cargoMapper.mapTipoCargoList(cargos), jwtTokenService.generateAccessToken(subject), jwtTokenService.generateRefreshToken(subject));
     }
 
-    public LoginResponse refreshJwtToken(String refreshToken) {
+    public TokenResponse refreshJwtToken(String refreshToken) {
         String email = jwtTokenService.getSubjectFromRefreshToken(refreshToken);
 
-        return new LoginResponse(
+        return new TokenResponse(
                 jwtTokenService.generateAccessToken(email),
                 jwtTokenService.generateRefreshToken(email)
         );
@@ -72,6 +80,7 @@ public class UsuarioService {
         Cargo cargo = cargoRepository.findByCargo(TipoCargo.ROLE_USUARIO).orElseThrow();
 
         Usuario newUser = Usuario.builder()
+                .nome(createUserRequest.nome())
                 .email(createUserRequest.email())
                 .senha(passwordEncoder.encode(createUserRequest.senha()))
                 .cargos(

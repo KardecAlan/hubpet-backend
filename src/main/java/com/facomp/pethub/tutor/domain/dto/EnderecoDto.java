@@ -1,6 +1,7 @@
-package com.facomp.pethub.endereco.domain.dto;
+package com.facomp.pethub.tutor.domain.dto;
 
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,16 +19,21 @@ public class EnderecoDto {
 
     private Long versao;
 
+    @NotBlank(message = "O CEP é obrigatório")
     private String cep;
 
+    @NotBlank(message = "O logradouro é obrigatório")
     private String logradouro;
 
+    @NotBlank(message = "O número é obrigatório")
     private String numero;
 
     private String complemento;
 
+    @NotBlank(message = "O Estado é obrigatório")
     private String estado;
 
+    @NotBlank(message = "A cidade é obrigatória")
     private String cidade;
 
     private String bairro;

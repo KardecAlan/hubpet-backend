@@ -1,4 +1,4 @@
-package com.facomp.pethub.endereco.domain.model;
+package com.facomp.pethub.tutor.domain.model;
 
 
 import jakarta.persistence.*;

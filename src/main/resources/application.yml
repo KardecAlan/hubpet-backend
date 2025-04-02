@@ -2,7 +2,7 @@ spring:
   application:
     name: pethub
   profiles:
-    active: local
+    active: dev
 server:
   port: ${PORT:8080}
   servlet:
